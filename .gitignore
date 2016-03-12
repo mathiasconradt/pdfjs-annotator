@@ -1,0 +1,9 @@
+.idea
+.idea/**
+*.iml
+build
+bin
+application.mln.properties
+.gradle
+*.bak
+*.log
