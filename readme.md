@@ -85,4 +85,4 @@ E-Mail: mathias.conradt@gmail.com
 
 Twitter: https://twitter.com/mathiasconradt
 
-Stackoverflow: http://stackoverflow.com/users/241475/mathias-conradt?tab=profile
+Stackoverflow: http://stackoverflow.com/users/241475/mathias-conradt
