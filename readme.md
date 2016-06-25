@@ -69,7 +69,7 @@ You can then open a web browser and point it to: `http://localhost:8080/web/view
 
 You should then see a default dummy pdf and you should be able to annotate it by marking a word or sentence with the mouse.
 
-![IMAGE](https://bitbucket.org/mathiasconradt/pdfjs-annotator/downloads/pdfjs-annotator.png)
+![IMAGE](https://snag.gy/HSWVLO.jpg)
 
 ### Loading a different pdf
 
