@@ -37,6 +37,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.sql.Timestamp;
 import java.util.Calendar;
 import java.util.List;
+import java.util.Optional;
 import java.util.UUID;
 
 
@@ -84,24 +85,24 @@ public class AnnotationController {
     @RequestMapping(value = "/api/annotations/{id}", method = RequestMethod.GET)
     public Annotation read(@PathVariable String id) {
         LOGGER.info("Requested retrieval of annotation with id " + id);
-        return annotationRepository.findOne(id);
+        return annotationRepository.findById(id).get();
     }
 
     @RequestMapping(value = "/api/annotations/{id}", method = RequestMethod.PUT)
     public Annotation update(@PathVariable String id, @RequestBody Annotation annotation) {
         LOGGER.info("Requested update of annotation with id " + id);
-        Annotation oldAnnotation = annotationRepository.findOne(id);
-        oldAnnotation.setText(annotation.getText());
-        oldAnnotation.setQuote(annotation.getQuote());
-        oldAnnotation.setUpdated(new Timestamp(Calendar.getInstance().getTimeInMillis()));
-        return annotationRepository.save(oldAnnotation);
+        Optional<Annotation> oldAnnotation = annotationRepository.findById(id);
+        oldAnnotation.get().setText(annotation.getText());
+        oldAnnotation.get().setQuote(annotation.getQuote());
+        oldAnnotation.get().setUpdated(new Timestamp(Calendar.getInstance().getTimeInMillis()));
+        return annotationRepository.save(oldAnnotation.get());
     }
 
     @RequestMapping(value = "/api/annotations/{id}", method = RequestMethod.DELETE)
     public void delete(@PathVariable String id, HttpServletResponse response) {
         LOGGER.info("Requested deletion of annotation with id " + id);
         response.setStatus(204);
-        annotationRepository.delete(id);
+        annotationRepository.deleteById(id);
     }
 
     @RequestMapping(value = "/api/search", method = RequestMethod.GET)

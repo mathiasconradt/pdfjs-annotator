@@ -25,8 +25,9 @@ package pdfjsannotator.repository;
 
 import pdfjsannotator.model.annotation.Annotation;
 import org.springframework.data.repository.CrudRepository;
+import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
-
+@Repository
 @Transactional(rollbackFor = RuntimeException.class)
 public interface AnnotationRepository extends CrudRepository<Annotation, String> {
 

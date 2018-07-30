@@ -23,10 +23,13 @@
  */
 package pdfjsannotator;
 
+import java.util.Properties;
+
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
+import org.springframework.boot.autoconfigure.web.servlet.error.ErrorMvcAutoConfiguration;
 import org.springframework.boot.builder.SpringApplicationBuilder;
-import org.springframework.boot.context.web.SpringBootServletInitializer;
+import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
@@ -35,12 +38,18 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 @EnableJpaRepositories
 @ComponentScan
 @Configuration
-@EnableAutoConfiguration
+@EnableAutoConfiguration(exclude = ErrorMvcAutoConfiguration.class)
 @EnableTransactionManagement
 public class PdfAnnotator extends SpringBootServletInitializer {
 
     public static void main(String[] args) {
-        SpringApplication.run(PdfAnnotator.class, args);
+        
+        SpringApplication app = new SpringApplication(PdfAnnotator.class);
+		Properties properties = new Properties();
+		properties.setProperty("spring.resources.static-locations",
+				"classpath:/web/, classpath:/annotator/,classpath:/web/viewer");
+		app.setDefaultProperties(properties);
+		app.run();
     }
 
     @Override

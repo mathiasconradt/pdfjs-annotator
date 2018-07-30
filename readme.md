@@ -8,7 +8,7 @@ MIT License applies (http://opensource.org/licenses/MIT).
 * PdfJS (Apache License 2.0, http://www.apache.org/licenses/LICENSE-2.0)
 * Annotator v1.2.10 (Dual licensed under the MIT and GPLv3 licenses, https://github.com/okfn/annotator/)
 * jQuery v2.1.4 (MIT License, https://tldrlegal.com/license/mit-license)
-* Spring Boot 1.2.3 (Apache License 2.0, https://github.com/spring-projects/spring-boot/blob/master/LICENSE.txt)
+* Spring Boot 2.0.3 (Apache License 2.0, https://github.com/spring-projects/spring-boot/blob/master/LICENSE.txt)
 
 Thanks to the authors and contributors of those libraries and frameworks.
 
