@@ -46,7 +46,7 @@ public class Annotation {
     @Transient
     Range[] ranges;
     Range range;
-    String user;
+    String user1;
     String consumer;
     String[] tags = new String[]{};
     @Transient
@@ -125,12 +125,12 @@ public class Annotation {
         }
     }
 
-    public String getUser() {
-        return user;
+    public String getUser1() {
+        return user1;
     }
 
-    public void setUser(String user) {
-        this.user = user;
+    public void setUser1(String user) {
+        this.user1 = user;
     }
 
     public String getConsumer() {

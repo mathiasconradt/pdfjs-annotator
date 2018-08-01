@@ -1,6 +1,7 @@
 # PdfJs Annotator
 
 PdfJs-Annotator is a proof of concept project that integrates AnnotatorJs (http://annotatorjs.org/) with the PdfJs (https://mozilla.github.io/pdf.js/) library.
+
 It uses a simple Spring Boot application and a MySql database containing one table in the backend to persist annotations.
 MIT License applies (http://opensource.org/licenses/MIT).
 
@@ -9,7 +10,7 @@ MIT License applies (http://opensource.org/licenses/MIT).
 * Annotator v1.2.10 (Dual licensed under the MIT and GPLv3 licenses, https://github.com/okfn/annotator/)
 * jQuery v2.1.4 (MIT License, https://tldrlegal.com/license/mit-license)
 * Spring Boot 2.0.3 (Apache License 2.0, https://github.com/spring-projects/spring-boot/blob/master/LICENSE.txt)
-
+* forked from https://github.com/mathiasconradt/pdfjs-annotator
 Thanks to the authors and contributors of those libraries and frameworks.
 
 ## Project Setup
@@ -58,6 +59,27 @@ Database connection properties for the project are defined in `/src/main/resourc
 
 It assumes username `root` and password `root`. Adjust it to your own local MySql server.
 
+
+### PostgreSQL database support 
+Create a Postgres database named pdfjs_annotator:
+
+createdb -h localhost -p 5432 -U postgres pdfjs_annotator 
+
+Create Table :
+CREATE TABLE "annotation" ( "id" varchar(255)  NOT NULL,
+						   "annotator_schema_version" varchar(255)  DEFAULT NULL, 
+						   "consumer" varchar(255)  DEFAULT NULL,
+						   "created" timestamp DEFAULT NULL, "quote" text , 
+						   "end" varchar(255)  DEFAULT NULL, "end_offset" int DEFAULT NULL,
+						   "start" varchar(255)  DEFAULT NULL, "start_offset" int DEFAULT NULL, 
+						   "tags" bytea, "text" text , "updated" timestamp DEFAULT NULL,
+						   "uri" varchar(2000)  DEFAULT NULL, "user" varchar(255)  DEFAULT NULL, 
+						   PRIMARY KEY ("id") ) ;
+
+
+						   
+For PostgreSQl use 
+defined in `/src/main/resources/application.properties_postgresql`.
 ## Starting the project
 
 Make sure you have Gradle installed. If not, download it from here http://gradle.org, then add the gradle/bin folder to your environment PATH.
@@ -77,12 +99,3 @@ You can load any other pdf by specifying a url parameter `file`, which would the
 
 Example: `http://localhost:8080/web/viewer?file=example.pdf`
 
-## Questions
-
-For any questions, you can contact me.
-
-E-Mail: mathias.conradt@gmail.com
-
-Twitter: https://twitter.com/mathiasconradt
-
-Stackoverflow: http://stackoverflow.com/users/241475/mathias-conradt

@@ -28,26 +28,26 @@ import javax.persistence.Embeddable;
 @Embeddable
 public class Range {
 
-    private String start;
-    private String end;
+    private String start1;
+    private String end1;
     private Integer startOffset;
     private Integer endOffset;
 
 
-    public String getStart() {
-        return start;
+    public String getStart1() {
+        return start1;
     }
 
-    public void setStart(String start) {
-        this.start = start;
+    public void setStart1(String start) {
+        this.start1 = start;
     }
 
-    public String getEnd() {
-        return end;
+    public String getEnd1() {
+        return end1;
     }
 
-    public void setEnd(String end) {
-        this.end = end;
+    public void setEnd1(String end) {
+        this.end = end1;
     }
 
     public Integer getStartOffset() {
