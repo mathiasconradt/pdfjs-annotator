@@ -2,7 +2,7 @@
 
 PdfJs-Annotator is a proof of concept project that integrates AnnotatorJs (http://annotatorjs.org/) with the PdfJs (https://mozilla.github.io/pdf.js/) library.
 It uses a simple Spring Boot application and a MySql database containing one table in the backend to persist annotations.
-MIT License applies (http://opensource.org/licenses/MIT).
+MIT License applies (http://opensource.org/licenses/MIT). 
 
 Note that this repository is not maintained anymore, as it was just a proof of concept.
 Reported issues will not be resolved.
